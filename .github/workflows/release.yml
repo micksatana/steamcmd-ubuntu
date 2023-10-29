@@ -21,7 +21,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: micksatana/ubuntu-steamcmd
+          images: micksatana/steamcmd-ubuntu
       - name: Login to DockerHub
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3

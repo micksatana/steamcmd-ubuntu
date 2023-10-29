@@ -3,7 +3,7 @@
 ## Build
 
 ```
-docker build -t micksatana/ubuntu-steamcmd:latest \
+docker build -t micksatana/steamcmd-ubuntu:latest \
   --build-arg="ENABLE_LOCALES=en_US.UTF-8 th_TH.UTF-8" \
   .
 ```
