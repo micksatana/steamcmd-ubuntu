@@ -1,5 +1,9 @@
 # Ubuntu with SteamCMD and RCON
 
+![Latest](https://img.shields.io/docker/v/micksatana/steamcmd-ubuntu?label=Latest)
+![Size](https://img.shields.io/docker/image-size/micksatana/steamcmd-ubuntu?label=Size)
+![Pulls](https://img.shields.io/docker/pulls/micksatana/steamcmd-ubuntu?label=Pulls)
+
 ## Build
 
 ```
