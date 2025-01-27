@@ -22,6 +22,7 @@ RUN dpkg --add-architecture i386 \
 WORKDIR /usr/src/steamcmd
 
 RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+RUN ls -la /usr/lib/i386-linux-gnu
 
 FROM ${BASE_IMAGE}
 ARG UID
