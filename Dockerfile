@@ -2,9 +2,9 @@ ARG BASE_IMAGE="ubuntu:noble"
 ARG RCON_IMAGE="outdead/rcon:latest"
 # Space-separated locales to be generated. See the full list from /etc/locale.gen
 ARG ENABLE_LOCALES="en_US.UTF-8"
-ARG UID=1000
+ARG UID=1001
 ARG USER=steam
-ARG GID=1000
+ARG GID=1001
 ARG GROUP=steam
 
 FROM ${RCON_IMAGE} AS rcon
