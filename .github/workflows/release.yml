@@ -17,7 +17,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: micksatana/steamcmd-ubuntu
-      - name: Docker meta
+      - name: Docker meta (th)
         id: meta-th
         uses: docker/metadata-action@v5
         with:
