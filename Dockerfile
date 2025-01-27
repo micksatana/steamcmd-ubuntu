@@ -1,4 +1,4 @@
-ARG BASE_IMAGE="ubuntu:jammy-20231004"
+ARG BASE_IMAGE="ubuntu:noble"
 ARG RCON_IMAGE="outdead/rcon:latest"
 # Space-separated locales to be generated. See the full list from /etc/locale.gen
 ARG ENABLE_LOCALES="en_US.UTF-8"
