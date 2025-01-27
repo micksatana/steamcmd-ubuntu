@@ -22,7 +22,6 @@ RUN dpkg --add-architecture i386 \
 WORKDIR /usr/src/steamcmd
 
 RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
-RUN ls -la /usr/lib/i386-linux-gnu
 
 FROM ${BASE_IMAGE}
 ARG UID
@@ -57,7 +56,7 @@ COPY --from=steamcmd --chown=${UID}:${GID} /usr/src/steamcmd/ ${STEAMDIR}
 COPY --from=steamcmd [ \
     "/usr/lib/i386-linux-gnu/libthread_db.so.1", \
     "/usr/lib/i386-linux-gnu/libSDL2-2.0.so.0", \
-    "/usr/lib/i386-linux-gnu/libSDL2-2.0.so.0.18.2", \
+    "/usr/lib/i386-linux-gnu/libSDL2-2.0.so.0.3000.0", \
     "/usr/lib/i386-linux-gnu/" \
 ]
 
