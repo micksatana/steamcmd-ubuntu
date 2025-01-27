@@ -15,7 +15,7 @@ RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
-        ibsdl2-2.0-0:i386=2.0.20+dfsg-2ubuntu1.22.04.1 \
+        ibsdl2-2.0-0:i386=2.30.0+dfsg-1build3 \
         curl \
     && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
