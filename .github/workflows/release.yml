@@ -2,6 +2,8 @@ name: Release
 
 on:
   pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
@@ -17,13 +19,27 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: micksatana/steamcmd-ubuntu
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+          flavor: |
+            latest=true
+            prefix=v
       - name: Docker meta (th)
         id: meta-th
         uses: docker/metadata-action@v5
         with:
           images: micksatana/steamcmd-ubuntu
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
           flavor: |
             latest=false
+            prefix=v
             suffix=-th
       - name: Login to DockerHub
         if: github.event_name != 'pull_request'
@@ -31,19 +47,3 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-      - name: Build and push (th)
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          build-args: |
-            ENABLE_LOCALES=en_US.UTF-8 th_TH.UTF-8
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta-th.outputs.tags }}
-          labels: ${{ steps.meta-th.outputs.labels }}
