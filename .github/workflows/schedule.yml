@@ -1,0 +1,26 @@
+name: Monthly Test Build
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: micksatana/steamcmd-ubuntu
+          tags: |
+            type=schedule,pattern={{major}}.{{minor}}.{{patch}}
+      - name: Build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
