@@ -16,7 +16,7 @@ jobs:
         with:
           images: micksatana/steamcmd-ubuntu
           tags: |
-            type=schedule,pattern={{major}}.{{minor}}.{{patch}}
+            type=semver,pattern={{major}}.{{minor}}.{{patch}}
       - name: Build
         uses: docker/build-push-action@v6
         with:
